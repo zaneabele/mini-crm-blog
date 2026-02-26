@@ -8,6 +8,8 @@
 4. **2.4 diena** – Izveidots `GET /users` maršruts ar filtrēšanu pēc e-pasta un lapošanu. Ieviests vienots kļūdu formāts.
 5. **2.5 diena** – Uzrakstīti Jest vienību testi `validateUser()` funkcijai (7 testi) un Supertest integrācijas testi `POST /users` maršrutam (3 testi). Sagatavots testēšanas pārskats `testing_report.md`.
 6. **2.6 diena** – Sakārtota projekta struktūra, pievienots `seed.sql` ar testa datiem, izveidots kopsavilkums `summary.md` un papildināts README.md.
+7. **3.1 diena** – Pārskatīts līdzšinējais darbs, pārbaudīta projekta atbilstība prasībām, veikta koda audita un sagatavota bāze turpmākajiem uzdevumiem.
+8. **3.2 diena** – Paplašināta datubāzes shēma: pievienotas tabulas `posts` un `logs`. Uzzīmēta ERD diagramma un saglabāta `docs/erd.png`. Pārbaudīta shēmas importēšana MySQL Workbench.
 
 ## Izmantotās tehnoloģijas
 
