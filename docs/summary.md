@@ -10,6 +10,7 @@
 6. **2.6 diena** – Sakārtota projekta struktūra, pievienots `seed.sql` ar testa datiem, izveidots kopsavilkums `summary.md` un papildināts README.md.
 7. **3.1 diena** – Pārskatīts līdzšinējais darbs, pārbaudīta projekta atbilstība prasībām, veikta koda audita un sagatavota bāze turpmākajiem uzdevumiem.
 8. **3.2 diena** – Paplašināta datubāzes shēma: pievienotas tabulas `posts` un `logs`. Uzzīmēta ERD diagramma un saglabāta `docs/erd.png`. Pārbaudīta shēmas importēšana MySQL Workbench.
+9. **3.3 diena** – Inicializēta datubāze, importēta shēma, izveidoti testa dati (2 lietotāji, 3 bloga ieraksti, 2 žurnāla ieraksti). Pārbaudīti SELECT vaicājumi un JOIN starp `posts` un `users`. Saglabāts ekrānuzņēmums `docs/seed_data_success.png`.
 
 ## Izmantotās tehnoloģijas
 
