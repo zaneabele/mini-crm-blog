@@ -11,6 +11,8 @@
 7. **3.1 diena** – Pārskatīts līdzšinējais darbs, pārbaudīta projekta atbilstība prasībām, veikta koda audita un sagatavota bāze turpmākajiem uzdevumiem.
 8. **3.2 diena** – Paplašināta datubāzes shēma: pievienotas tabulas `posts` un `logs`. Uzzīmēta ERD diagramma un saglabāta `docs/erd.png`. Pārbaudīta shēmas importēšana MySQL Workbench.
 9. **3.3 diena** – Inicializēta datubāze, importēta shēma, izveidoti testa dati (2 lietotāji, 3 bloga ieraksti, 2 žurnāla ieraksti). Pārbaudīti SELECT vaicājumi un JOIN starp `posts` un `users`. Saglabāts ekrānuzņēmums `docs/seed_data_success.png`.
+10. **3.4 diena** – Izveidots MySQL savienojums (`src/db/connection.js`) un veselības pārbaudes maršruts (`/health`), kas pārbauda arī datubāzes savienojumu. Pārbaudīts, ka maršruts atgriež `{"status":"ok","db":"connected"}`. Saglabāts ekrānuzņēmums `docs/health_check.png`.
+
 
 ## Izmantotās tehnoloģijas
 
