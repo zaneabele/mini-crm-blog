@@ -13,6 +13,7 @@
 9. **3.3 diena** – Inicializēta datubāze, importēta shēma, izveidoti testa dati (2 lietotāji, 3 bloga ieraksti, 2 žurnāla ieraksti). Pārbaudīti SELECT vaicājumi un JOIN starp `posts` un `users`. Saglabāts ekrānuzņēmums `docs/seed_data_success.png`.
 10. **3.4 diena** – Izveidots MySQL savienojums (`src/db/connection.js`) un veselības pārbaudes maršruts (`/health`), kas pārbauda arī datubāzes savienojumu. Pārbaudīts, ka maršruts atgriež `{"status":"ok","db":"connected"}`. Saglabāts ekrānuzņēmums `docs/health_check.png`.
 11. **3.5 diena** – Izstrādāta lietotāja validācijas funkcija, universāls kļūdu apstrādātājs un logu rakstīšanas funkcija. Pievienota kļūdu reģistrēšana `logs` tabulā. Pārbaudītas dažādas kļūdas (nepareizs JSON, tukšs vārds, nepareizs e-pasts) un pārliecināts, ka tās tiek ierakstītas datubāzē. Saglabāts ekrānuzņēmums `docs/logs_test.png`.
+12. **3.6 diena** – Ieviesta reģistrācijas funkcionalitāte ar datu validāciju, e-pasta unikalitātes pārbaudi un paroles hešošanu (bcrypt). Pārbaudīti veiksmīgi un neveiksmīgi scenāriji. Postman kolekcija papildināta ar jauniem pieprasījumiem.
 
 ## Izmantotās tehnoloģijas
 
