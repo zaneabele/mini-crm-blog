@@ -4,6 +4,7 @@ require('dotenv').config();
 const { testConnection } = require('./db/connection');
 const errorHandler = require('./middleware/errorHandler');
 const usersRouter = require('../routes/users');
+const postsRouter = require('../routes/posts');  // <-- PIEVIENOTS IMPORTS
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -30,6 +31,7 @@ app.get('/', (req, res) => {
 
 // Lietotāju maršruti
 app.use('/', usersRouter);
+app.use('/', postsRouter);  // <-- ŠIS JUMS JAU IR
 
 // Kļūdu apstrādātājs (jābūt PĒC visiem maršrutiem!)
 app.use(errorHandler);

@@ -2,7 +2,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const { createUser, getUsers, getUserByEmail } = require('../db');
-const validateUser = require('../utils/validateUser');
+const validateUser = require('../src/utils/validateUser');
 const { logError } = require('../src/db/logs');
 
 const router = express.Router();

@@ -15,6 +15,7 @@
 11. **3.5 diena** – Izstrādāta lietotāja validācijas funkcija, universāls kļūdu apstrādātājs un logu rakstīšanas funkcija. Pievienota kļūdu reģistrēšana `logs` tabulā. Pārbaudītas dažādas kļūdas (nepareizs JSON, tukšs vārds, nepareizs e-pasts) un pārliecināts, ka tās tiek ierakstītas datubāzē. Saglabāts ekrānuzņēmums `docs/logs_test.png`.
 12. **3.6 diena** – Ieviesta reģistrācijas funkcionalitāte ar datu validāciju, e-pasta unikalitātes pārbaudi un paroles hešošanu (bcrypt). Pārbaudīti veiksmīgi un neveiksmīgi scenāriji. Postman kolekcija papildināta ar jauniem pieprasījumiem.
 13. **3.7 diena** – Pārbaudīta lietotāju saraksta maršruta darbība ar filtrēšanu pēc e-pasta un pagināciju. Testēti dažādi scenāriji, Postman kolekcija eksportēta.
+14. **3.8 diena** – Izveidoti ierakstu (posts) maršruti: POST /posts ar validāciju un GET /posts ar JOIN un filtrēšanu pēc autora. Pārbaudīta datu sasaiste ar lietotājiem.
 
 ## Izmantotās tehnoloģijas
 
