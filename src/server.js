@@ -4,13 +4,16 @@ require('dotenv').config();
 const { testConnection } = require('./db/connection');
 const errorHandler = require('./middleware/errorHandler');
 const usersRouter = require('../routes/users');
-const postsRouter = require('../routes/posts');  // <-- PIEVIENOTS IMPORTS
+const postsRouter = require('../routes/posts');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Lai lasītu JSON no pieprasījumiem
 app.use(express.json());
+
+// Statisko failu mape (public/)
+app.use(express.static('public'));  // <-- PIEVIENOTS!
 
 app.get('/health', async (req, res) => {
   try {
@@ -31,9 +34,9 @@ app.get('/', (req, res) => {
 
 // Lietotāju maršruti
 app.use('/', usersRouter);
-app.use('/', postsRouter);  // <-- ŠIS JUMS JAU IR
+app.use('/', postsRouter);
 
-// Kļūdu apstrādātājs (jābūt PĒC visiem maršrutiem!)
+// Kļūdu apstrādātājs
 app.use(errorHandler);
 
 app.listen(port, () => {

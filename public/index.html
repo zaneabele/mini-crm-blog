@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini CRM / Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mini CRM / Blog</h1>
+
+        <div class="forms-container">
+            <!-- Lietotāja pievienošanas forma -->
+            <div class="form-section">
+                <h2>Pievienot lietotāju</h2>
+                <form id="userForm">
+                    <input type="text" id="userName" placeholder="Vārds" required>
+                    <input type="email" id="userEmail" placeholder="E-pasts" required>
+                    <input type="password" id="userPassword" placeholder="Parole" required>
+                    <button type="submit">Pievienot lietotāju</button>
+                </form>
+                <div id="userMessage" class="message"></div>
+            </div>
+
+            <!-- Ieraksta pievienošanas forma -->
+            <div class="form-section">
+                <h2>Pievienot ierakstu</h2>
+                <form id="postForm">
+                    <input type="text" id="postTitle" placeholder="Virsraksts" required>
+                    <textarea id="postContent" placeholder="Saturs" rows="4" required></textarea>
+                    <select id="postUserId" required>
+                        <option value="">Izvēlies lietotāju</option>
+                    </select>
+                    <button type="submit">Pievienot ierakstu</button>
+                </form>
+                <div id="postMessage" class="message"></div>
+            </div>
+        </div>
+
+        <!-- Lietotāju tabula -->
+        <div class="table-section">
+            <h2>Lietotāji</h2>
+            <table id="usersTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Vārds</th>
+                        <th>E-pasts</th>
+                        <th>Izveidots</th>
+                    </tr>
+                </thead>
+                <tbody id="usersBody">
+                    <tr><td colspan="4">Ielādē...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Ierakstu tabula -->
+        <div class="table-section">
+            <h2>Ieraksti</h2>
+            <table id="postsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Virsraksts</th>
+                        <th>Saturs</th>
+                        <th>Autors</th>
+                        <th>Izveidots</th>
+                    </tr>
+                </thead>
+                <tbody id="postsBody">
+                    <tr><td colspan="5">Ielādē...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
