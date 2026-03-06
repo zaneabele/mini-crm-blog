@@ -1,5 +1,7 @@
+// __tests__/users.integration.test.js
 const request = require('supertest');
-const app = require('../index'); // tavam index.js jābūt ar module.exports = app
+const app = require('../src/server'); // <-- IZLABOTS!
+const { pool, getUsers } = require('../db'); // <-- PIEVIENOTS pool!
 
 describe('POST /users integrācijas testi', () => {
   
@@ -34,4 +36,14 @@ describe('POST /users integrācijas testi', () => {
 
     expect(response.body.error.code).toBe('DUPLICATE_EMAIL');
   });
+});
+
+// Pirms testiem pārbauda datubāzes savienojumu
+beforeAll(async () => {
+  await pool.query("SELECT 1");
+});
+
+// Pēc testiem aizver savienojumu
+afterAll(async () => {
+  await pool.end();
 });

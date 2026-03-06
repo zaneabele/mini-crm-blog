@@ -1,0 +1,81 @@
+// __tests__/validatePost.test.js
+const validatePost = require('../src/utils/validatePost');
+
+// Mēs aizvietosim īsto getUserById ar mock versiju
+jest.mock('../db', () => ({
+  getUserById: jest.fn()
+}));
+
+const { getUserById } = require('../db');
+
+describe('Funkcijas validatePost pārbaude', () => {
+
+  beforeEach(() => {
+    // Pirms katra testa atiestatām mock
+    jest.clearAllMocks();
+  });
+
+  test('1. Veiksmīgs gadījums: visi dati pareizi', async () => {
+    // Mock, ka lietotājs ar ID 1 eksistē
+    getUserById.mockResolvedValue({ id: 1, name: 'Anna' });
+
+    const postData = {
+      title: 'Pilns virsraksts',
+      content: 'Šis ir pietiekami garš saturs testiem.',
+      user_id: 1
+    };
+    const errors = await validatePost(postData);
+    expect(errors).toEqual([]);
+    expect(getUserById).toHaveBeenCalledWith(1);
+  });
+
+  test('2. Kļūda: pārāk īss virsraksts (< 3)', async () => {
+    getUserById.mockResolvedValue({ id: 1, name: 'Anna' });
+
+    const postData = {
+      title: 'Aa',
+      content: 'Šis ir pietiekami garš saturs testiem.',
+      user_id: 1
+    };
+    const errors = await validatePost(postData);
+    expect(errors.length).toBeGreaterThan(0);
+    expect(errors[0]).toContain('Virsraksts');
+  });
+
+  test('3. Kļūda: pārāk īss saturs (< 10)', async () => {
+    getUserById.mockResolvedValue({ id: 1, name: 'Anna' });
+
+    const postData = {
+      title: 'Pilns virsraksts',
+      content: 'Īss',
+      user_id: 1
+    };
+    const errors = await validatePost(postData);
+    expect(errors.length).toBeGreaterThan(0);
+    expect(errors[0]).toContain('Saturs');
+  });
+
+  test('4. Kļūda: trūkst lietotāja ID', async () => {
+    const postData = {
+      title: 'Pilns virsraksts',
+      content: 'Šis ir pietiekami garš saturs testiem.'
+    };
+    const errors = await validatePost(postData);
+    expect(errors.length).toBeGreaterThan(0);
+    expect(errors[0]).toContain('Lietotāja ID');
+  });
+
+  test('5. Kļūda: lietotājs neeksistē', async () => {
+    // Mock, ka lietotājs ar ID 99 neeksistē
+    getUserById.mockResolvedValue(null);
+
+    const postData = {
+      title: 'Pilns virsraksts',
+      content: 'Šis ir pietiekami garš saturs testiem.',
+      user_id: 99
+    };
+    const errors = await validatePost(postData);
+    expect(errors.length).toBeGreaterThan(0);
+    expect(errors[0]).toContain('Lietotājs ar šādu ID neeksistē');
+  });
+});

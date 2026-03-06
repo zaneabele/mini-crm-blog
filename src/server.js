@@ -39,7 +39,12 @@ app.use('/', postsRouter);
 // Kļūdu apstrādātājs
 app.use(errorHandler);
 
-app.listen(port, () => {
-  console.log(`🚀 Serveris klausās uz porta ${port}`);
-  testConnection();
-});
+// Pārbauda, vai tas nav testu režīms
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`🚀 Serveris klausās uz porta ${port}`);
+    testConnection();
+  });
+}
+
+module.exports = app; // <-- EKSPORTĒ app testiem!;
