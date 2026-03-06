@@ -17,6 +17,8 @@
 13. **3.7 diena** – Pārbaudīta lietotāju saraksta maršruta darbība ar filtrēšanu pēc e-pasta un pagināciju. Testēti dažādi scenāriji, Postman kolekcija eksportēta.
 14. **3.8 diena** – Izveidoti ierakstu (posts) maršruti: POST /posts ar validāciju un GET /posts ar JOIN un filtrēšanu pēc autora. Pārbaudīta datu sasaiste ar lietotājiem.
 15. **3.9 diena** – Izveidota vienkārša front-end lapa ar formām lietotāju un ierakstu pievienošanai. Izmantots JavaScript (fetch) datu ielādei un atjaunināšanai. Pievienots CSS lapas noformējumam.
+16. "3.10 diena: vienību un integrācijas testi".
+
 
 ## Izmantotās tehnoloģijas
 
