@@ -19,6 +19,7 @@
 15. **3.9 diena** – Izveidota vienkārša front-end lapa ar formām lietotāju un ierakstu pievienošanai. Izmantots JavaScript (fetch) datu ielādei un atjaunināšanai. Pievienots CSS lapas noformējumam.
 16.  **3.10 diena**: vienību un integrācijas testi.
 17. **3.11 diena** – Papildināta logu sistēma, lai atbalstītu dažādus līmeņus un meta datus. Veiktas trīs kļūdu simulācijas (nepareizs JSON, datubāzes kļūda, validācijas kļūda). Visi ieraksti veiksmīgi saglabāti `logs` tabulā.
+18. **3.12 diena** – Optimizēju SQL vaicājumus, pievienojot indeksus `users(email)` un `posts(user_id)` laukiem. Analizēju vaicājumu izpildi ar EXPLAIN un dokumentēju uzlabojumus `docs/sql_optimization.md`.
 
 ## Izmantotās tehnoloģijas
 
