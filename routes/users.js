@@ -1,7 +1,7 @@
 // routes/users.js
 const express = require('express');
 const bcrypt = require('bcrypt');
-const { createUser, getUsers, getUserByEmail } = require('../db');
+const { createUser, getUsers, getUserByEmail, pool } = require('../db');
 const validateUser = require('../src/utils/validateUser');
 const { logError } = require('../src/db/logs');
 

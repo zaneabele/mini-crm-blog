@@ -56,3 +56,11 @@
 |----------------|-----------|----------------------|--------------------|-----------|
 | 2.4.1. Visi ieraksti | `-` | `200 OK` | `{ data: [...] }` (ar autora datiem) | ✅ Izdots |
 | 2.4.2. Filtrs pēc autora | `?user_id=1` | `200 OK` | `{ data: [...] }` (tikai autora ieraksti) | ✅ Izdots |
+
+## 3. Kļūdu simulācijas testi
+
+| Simulācija | Metode | Ievaddati / Darbība | Sagaidāmais rezultāts | Rezultāts |
+|------------|--------|----------------------|------------------------|-----------|
+| 3.1. Nepareizs JSON | POST /users | Nederīgs JSON (trūkst figūriekavas) | Kļūda tiek ierakstīta `logs` tabulā | ✅ Izdots |
+| 3.2. Datubāzes kļūda | GET /test/db-error | Nepareizs SQL vaicājums | Kļūda tiek ierakstīta `logs` tabulā | ✅ Izdots |
+| 3.3. Validācijas kļūda | POST /users | `{name: "", email: "nepareizs", password: "123"}` | Kļūda tiek ierakstīta `logs` tabulā | ✅ Izdots |
