@@ -1,16 +1,14 @@
-// routes/users.js
+// src/routes/users.js
 const express = require('express');
 const bcrypt = require('bcrypt');
 const { createUser, getUsers, getUserByEmail, pool } = require('../db');
-const validateUser = require('../src/utils/validateUser');
-const { logError } = require('../src/db/logs');
+const validateUser = require('../utils/validateUser');
+const { logError } = require('../db/logs');
 
 const router = express.Router();
 
-// POST /users - reģistrācija
 router.post('/users', async (req, res, next) => {
   try {
-    // 1. Validācija
     const errors = validateUser(req.body);
     if (errors.length > 0) {
       await logError('WARN', 'Validācijas kļūda', { errors, body: req.body });
@@ -22,7 +20,6 @@ router.post('/users', async (req, res, next) => {
       });
     }
 
-    // 2. Pārbaude, vai e-pasts jau eksistē
     const existingUser = await getUserByEmail(req.body.email);
     if (existingUser) {
       await logError('WARN', 'Dublikāta e-pasts', { email: req.body.email });
@@ -34,16 +31,10 @@ router.post('/users', async (req, res, next) => {
       });
     }
 
-    // 3. Datu iegūšana
     const { name, email, password } = req.body;
-
-    // 4. Paroles hash (bcrypt)
     const passwordHash = await bcrypt.hash(password, 10);
-
-    // 5. Lietotāja izveide datubāzē
     const userId = await createUser(name.trim(), email.trim().toLowerCase(), passwordHash);
 
-    // 6. Atbilde (201 Created)
     res.status(201).json({
       id: userId,
       name: name.trim(),
@@ -51,12 +42,10 @@ router.post('/users', async (req, res, next) => {
     });
 
   } catch (err) {
-    // 7. Citas kļūdas tiek nodotas kļūdu apstrādātājam
     next(err);
   }
 });
 
-// GET /users - (jau ir no iepriekšējām dienām)
 router.get('/users', async (req, res, next) => {
   try {
     const { email, page = 1, limit = 10 } = req.query;
