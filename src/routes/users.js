@@ -87,3 +87,5 @@ router.get('/users', async (req, res, next) => {
 });
 
 module.exports = router;
+
+// GET /users - atgriež visus lietotājus ar atbalstu lapošanai un filtrēšanai
