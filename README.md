@@ -1,5 +1,8 @@
 # Mini CRM / Blog projekts
 
+## Projekta apraksts
+Mini CRM/Blog projekts, kas izstrādāts prakses laikā. Ļauj pievienot lietotājus un bloga ierakstus.
+
 ## Kā palaist projektu
 1. Instalē atkarības:
    - `npm install`
@@ -66,5 +69,6 @@ Palaist testus:
 ```
 npm test
 ```
+
 
 

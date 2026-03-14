@@ -17,11 +17,9 @@
 13. **3.7 diena** – Pārbaudīta lietotāju saraksta maršruta darbība ar filtrēšanu pēc e-pasta un pagināciju. Testēti dažādi scenāriji, Postman kolekcija eksportēta.
 14. **3.8 diena** – Izveidoti ierakstu (posts) maršruti: POST /posts ar validāciju un GET /posts ar JOIN un filtrēšanu pēc autora. Pārbaudīta datu sasaiste ar lietotājiem.
 15. **3.9 diena** – Izveidota vienkārša front-end lapa ar formām lietotāju un ierakstu pievienošanai. Izmantots JavaScript (fetch) datu ielādei un atjaunināšanai. Pievienots CSS lapas noformējumam.
-16.  **3.10 diena**: vienību un integrācijas testi.
+16. **3.10 diena** – Izveidoti vienību testi validatePost() funkcijai un paplašināti integrācijas testi ar Supertest (POST /users, GET /users, POST /posts, GET /posts). Visi testi izpildās veiksmīgi.
 17. **3.11 diena** – Papildināta logu sistēma, lai atbalstītu dažādus līmeņus un meta datus. Veiktas trīs kļūdu simulācijas (nepareizs JSON, datubāzes kļūda, validācijas kļūda). Visi ieraksti veiksmīgi saglabāti `logs` tabulā.
-18. **3.12 diena** – Optimizēju SQL vaicājumus, pievienojot indeksus `users(email)` un `posts(user_id)` laukiem. Analizēju vaicājumu izpildi ar EXPLAIN un dokumentēju uzlabojumus `docs/sql_optimization.md`.
-19. **3.13 diena** – Testēju lietotni dažādos pārlūkos (Chrome, Edge) un pārliecinājos, ka formas un validācija strādā vienādi. Saglabāju dokumentācijai ekrānuzņēmumus.
-20. **3.14 diena** – Veicu projekta refaktorēšanu un sakārtoju mapes (maršruti, utilīti). Noņēmu liekos komentārus un mirušo kodu. Atjaunināju README.md ar pilniem palaišanas norādījumiem, API galapunktu piemēriem un projekta struktūru.
+18. **3.12, 3.13, 3.14 diena** – Veikta SQL optimizācija, pievienojot indeksus `users(email)` un `posts(user_id)` laukiem; analizēti vaicājumi ar EXPLAIN un dokumentēti uzlabojumi. Pārbaudīta lietotnes darbība Chrome, Firefox un Edge pārlūkos, novērstas UI problēmas. Veikta projekta refaktorēšana un dokumentācijas papildināšana.
 
 ## Izmantotās tehnoloģijas
 
