@@ -1,7 +1,6 @@
 # Projekta kopsavilkums – Mini CRM Blog
 
 ## Paveiktais
-
 1. **2.1 diena** – Izveidots Express serveris ar `/health` maršrutu, pievienots dotenv, izveidots README.md un publicēts GitHub.
 2. **2.2 diena** – Izveidota MySQL datubāze `prakse` un tabula `users` ar unikālu e-pastu. Izveidots savienojums ar `mysql2` un funkcijas `createUser()` un `getUsers()`.
 3. **2.3 diena** – Izveidota validācijas funkcija `validateUser()` (vārds ≥2, e-pasts formātā, parole ≥6). Izveidots `POST /users` maršruts ar bcrypt paroles hashošanai un dublikātu pārbaudi. Saglabāta Postman kolekcija.
@@ -20,6 +19,9 @@
 16. **3.10 diena** – Izveidoti vienību testi validatePost() funkcijai un paplašināti integrācijas testi ar Supertest (POST /users, GET /users, POST /posts, GET /posts). Visi testi izpildās veiksmīgi.
 17. **3.11 diena** – Papildināta logu sistēma, lai atbalstītu dažādus līmeņus un meta datus. Veiktas trīs kļūdu simulācijas (nepareizs JSON, datubāzes kļūda, validācijas kļūda). Visi ieraksti veiksmīgi saglabāti `logs` tabulā.
 18. **3.12, 3.13, 3.14 diena** – Veikta SQL optimizācija, pievienojot indeksus `users(email)` un `posts(user_id)` laukiem; analizēti vaicājumi ar EXPLAIN un dokumentēti uzlabojumi. Pārbaudīta lietotnes darbība Chrome, Firefox un Edge pārlūkos, novērstas UI problēmas. Veikta projekta refaktorēšana un dokumentācijas papildināšana.
+
+5) Sadarbošanās testēšanas un darbināšanas vidē
+19. **5.1 diena** – Sagatavoju Git darba plūsmas dokumentu `docs/git_workflow.md` un praktizēju atzarošanu un apvienošanu, izmantojot `feature` atzarus un pull requests. Izveidoti divi GitHub Issues un PR, kas ar tiem sasaistīti.
 
 ## Izmantotās tehnoloģijas
 
