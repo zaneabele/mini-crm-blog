@@ -22,6 +22,7 @@
 
 5) Sadarbošanās testēšanas un darbināšanas vidē
 19. **5.1 diena** – Sagatavoju Git darba plūsmas dokumentu `docs/git_workflow.md` un praktizēju atzarošanu un apvienošanu, izmantojot `feature` atzarus un pull requests. Izveidoti divi GitHub Issues un PR, kas ar tiem sasaistīti.
+20. **5.2 diena** – Ieviesu koda pārskatīšanas vadlīnijas `docs/code_review_guidelines.md` un sagatavoju Pull request veidni. Aprakstīju sadarbības rīku (Slack/Discord) izmantošanu ikdienas darbā.
 
 ## Izmantotās tehnoloģijas
 
