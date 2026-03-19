@@ -1,0 +1,81 @@
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           LIETOTĀJA PĀRLŪKS                                 │
+│                              (Chrome, Firefox, Edge)                        │
+│                                   │                                         │
+│                                   │ HTTP pieprasījumi (GET, POST)           │
+│                                   │ (piem., localhost:3000/api)             │
+│                                   ▼                                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                              FRONT-END (public/)                            │
+│  ┌──────────────────────────────────────────────────────────────────────┐  │
+│  │                       index.html                                      │  │
+│  │                       style.css                                       │  │
+│  │                       script.js (fetch API)                           │  │
+│  └──────────────────────────────────────────────────────────────────────┘  │
+│                                   │                                         │
+│                                   │ API izsaukumi (fetch)                   │
+│                                   ▼                                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                              BACK-END (src/)                                │
+│  ┌──────────────────────────────────────────────────────────────────────┐  │
+│  │                        server.js                                      │  │
+│  │              (Express, maršrutu un kļūdu apstrāde)                   │  │
+│  └──────────────────────────────────────────────────────────────────────┘  │
+│                                   │                                         │
+│                    ┌──────────────┴──────────────┐                        │
+│                    │                             │                        │
+│                    ▼                             ▼                        │
+│  ┌──────────────────────────────┐  ┌──────────────────────────────┐      │
+│  │       routes/                │  │       middleware/             │      │
+│  │  • users.js                  │  │  • errorHandler.js           │      │
+│  │  • posts.js                  │  └──────────────────────────────┘      │
+│  └──────────────────────────────┘                           │              │
+│                    │                                         │              │
+│                    └──────────────┬──────────────┘           │              │
+│                                   │                          │              │
+│                                   ▼                          │              │
+│  ┌──────────────────────────────────────────────────────┐   │              │
+│  │                    utils/                            │   │              │
+│  │  • validateUser.js                                   │   │              │
+│  │  • validatePost.js                                   │   │              │
+│  └──────────────────────────────────────────────────────┘   │              │
+│                                   │                          │              │
+│                                   ▼                          │              │
+│  ┌──────────────────────────────────────────────────────┐   │              │
+│  │                      db/                              │   │              │
+│  │  • index.js (pool, db funkcijas)                      │◄──┘              │
+│  │  • connection.js                                      │                  │
+│  │  • logs.js                                            │                  │
+│  │  • posts.js                                           │                  │
+│  └──────────────────────────────────────────────────────┘                  │
+│                                   │                                         │
+│                                   │ SQL vaicājumi (SELECT, INSERT)         │
+│                                   ▼                                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                           DATUBĀZE (MySQL)                                 │
+│  ┌──────────────────────────────────────────────────────────────────────┐  │
+│  │                       prakse                                          │  │
+│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐               │  │
+│  │  │    users     │  │    posts     │  │    logs      │               │  │
+│  │  │ • id         │  │ • id         │  │ • id         │               │  │
+│  │  │ • name       │  │ • title      │  │ • level      │               │  │
+│  │  │ • email (UNIQ)│  │ • content    │  │ • message    │               │  │
+│  │  │ • password_hash│ │ • user_id (FK)│ │ • meta_json  │               │  │
+│  │  │ • created_at  │  │ • created_at │  │ • created_at │               │  │
+│  │  └──────────────┘  └──────────────┘  └──────────────┘               │  │
+│  └──────────────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+                    DATU PLŪSMA (piemērs: jauna ieraksta pievienošana)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  1. Lietotājs aizpilda formu pārlūkā → nospiež "Pievienot ierakstu"        │
+│  2. script.js ar fetch() nosūta POST /posts pieprasījumu ar JSON datiem    │
+│  3. server.js saņem pieprasījumu un padod to maršrutam routes/posts.js     │
+│  4. routes/posts.js izsauc validatePost() no utils/, lai pārbaudītu datus  │
+│  5. Ja dati derīgi, izsauc createPost() no db/posts.js                     │
+│  6. createPost() izpilda SQL INSERT uz datubāzi                             │
+│  7. Atbilde (jauns ieraksts) tiek nosūtīta atpakaļ caur katru slāni        │
+│  8. script.js saņem atbildi un atjauno tabulu, parādot paziņojumu          │
+│  9. Ja kādā solī rodas kļūda, to pārtver errorHandler.js un ieraksta       │
+│     logs tabulā, un lietotājam tiek parādīts paziņojums                     │
+└─────────────────────────────────────────────────────────────────────────────┘
