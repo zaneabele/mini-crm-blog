@@ -23,6 +23,7 @@
 5) Sadarbošanās testēšanas un darbināšanas vidē
 19. **5.1 diena** – Sagatavoju Git darba plūsmas dokumentu `docs/git_workflow.md` un praktizēju atzarošanu un apvienošanu, izmantojot `feature` atzarus un pull requests. Izveidoti divi GitHub Issues un PR, kas ar tiem sasaistīti.
 20. **5.2 diena** – Ieviesu koda pārskatīšanas vadlīnijas `docs/code_review_guidelines.md` un sagatavoju Pull request veidni. Aprakstīju sadarbības rīku (Slack/Discord) izmantošanu ikdienas darbā.
+21. **5.3 diena** – Izpētīju izvietošanas iespējas un izveidoju Dockerfile Express serverim. Uzbūvēju un palaidu konteineru testēšanas vidē, pārbaudot API darbību ārpus izstrādes vides. Izvietoju lietotni Render.com un sagatavoju izvietošanas instrukcijas `docs/deployment_instructions.md`.
 
 **Papildu diena** – Pievienota sistēmas augsta līmeņa arhitektūras diagramma `docs/architecture_diagram.png`, kas parāda front-end, back-end un datubāzes mijiedarbību.
 
